@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+<div class="user">
+    <h1 class="heading">Пользователи</h1>
+
+    <table>
+        <tr>
+<!--            <th>ID пользователя</th>-->
+            <th>Имя пользователя</th>
+            <th>Возраст пользователя</th>
+        </tr>
+        <tr th:each="u: ${user}" >
+<!--            <td th:text="${u.id}"></td>-->
+            <td th:text="${u.name}"></td>
+            <td th:text="${u.age}"></td>
+        </tr>
+    </table>
+
+    <h2>Внесите Ваши имя и возраст для регистрации</h2>
+    <form class="form" action="/user" method="post">
+        <div class="name">
+            Имя: <input class="inputName" type="text" name="name"><br />
+        </div>
+        <div class="age">
+            Возраст: <input type="age" step="any" name="age"><br />
+        </div>
+
+        <button class="btn" type="submit">Add</button>
+    </form>
+</div>
+
+
+<script>
+    const userEl = document.querySelector('.user');
+    userEl.style.display = "flex";
+    userEl.style.flexDirection = "column";
+    userEl.style.alignItems = "center";
+
+    const headingEl = document.querySelector('.heading');
+    headingEl.style.cssText = 'color: blue';
+
+    const formEl = document.querySelector('.form');
+    formEl.style.display = "flex";
+    formEl.style.padding = "5px";
+    formEl.style.gap = "5px";
+    formEl.style.flexDirection = "column";
+    formEl.style.alignItems = "flex-start";
+
+    const inputNameEl = document.querySelector('.inputName');
+    inputNameEl.style.marginLeft = "25px";
+
+    const btnEl = document.querySelector('.btn');
+    btnEl.style.backgroundColor = '#E6E6FA';
+    btnEl.style.MozBorderRadius = '15px';
+    btnEl.style.WebkitBorderRadius = '15px';
+    btnEl.style.padding = "9px";
+    btnEl.style.paddingLeft = "30px";
+    btnEl.style.paddingRight = "30px";
+    btnEl.style.marginLeft = "90px";
+    btnEl.style.marginTop = "10px";
+
+</script>
+</body>
+</html>
